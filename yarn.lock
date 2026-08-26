@@ -3748,6 +3748,8 @@ __metadata:
   dependenciesMeta:
     fsevents:
       optional: true
+    turbo-darwin-arm64:
+      optional: true
   languageName: unknown
   linkType: soft
 
@@ -13409,7 +13411,6 @@ __metadata:
 "turbo-darwin-arm64@npm:1.13.4, turbo-darwin-arm64@npm:^1.13.4":
   version: 1.13.4
   resolution: "turbo-darwin-arm64@npm:1.13.4"
-  checksum: beda5806bee2c3c0b65e01b7ae7878ee0f55485974953bda3bda2f55e2675647c473995e813d530500d9b0e158d1f414490d88830a5ea708ba136eb485a67fcf
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
