@@ -114,8 +114,15 @@ class GdalModule(reactContext: ReactApplicationContext) :
         )
 
         if (outDS == null) {
+          val errorMessage = gdal.GetLastErrorMsg()
+
+          Log.e("TLGEO", "VectorTranslate failed: $errorMessage")
+
           withContext(Dispatchers.Main) {
-            promise.reject("ERROR_TRANSLATE", "Dịch không thành công.")
+            promise.reject(
+              "ERROR_TRANSLATE",
+              "VectorTranslate failed: $errorMessage"
+            )
           }
           return@launch
         }
@@ -207,8 +214,15 @@ class GdalModule(reactContext: ReactApplicationContext) :
         val outDS = gdal.Translate(destPath, srcDS, TranslateOptions(newArgs), progressCallback)
 
         if (outDS == null) {
+          val errorMessage = gdal.GetLastErrorMsg()
+
+          Log.e("TLGEO", "Translate failed: $errorMessage")
+
           withContext(Dispatchers.Main) {
-            promise.reject("ERROR_TRANSLATE", "Dịch không thành công.")
+            promise.reject(
+              "ERROR_TRANSLATE",
+              "Translate failed: $errorMessage"
+            )
           }
           return@launch
         }
